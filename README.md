@@ -1,2 +1,2 @@
 # SiteManager
-Windows application for managing builds of my site: https://aorayden.github.io
+Windows build management application for my website: https://aorayden.github.io
