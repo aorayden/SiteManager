@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ManageSite
+namespace SiteManager
 {
-    internal class BuildUploader
+    internal class ViewVersionList
     {
-        internal void UploadMenu()
+        internal void ViewVersionListMenu()
         {
             Console.Clear();
             while (true)
             {
-                Console.WriteLine("Welcome to UploadMenu");
+                Console.WriteLine("Welcome to ViewVersionList");
             }
-      
         }
     }
 }

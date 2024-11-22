@@ -8,5 +8,14 @@ namespace ManageSite
 {
     internal class GitHubUploader
     {
+        internal void UploaderMenu()
+        {
+            Console.Clear();
+
+            while (true)
+            {
+                Console.WriteLine("GitHubUploader menu..");
+            }
+        }
     }
 }

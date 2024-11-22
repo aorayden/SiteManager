@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ManageSite
 {
-    internal class BuildUploader
+    internal class LaunchVSCode
     {
-        internal void UploadMenu()
+        internal void LauncherMenu()
         {
             Console.Clear();
             while (true)
             {
-                Console.WriteLine("Welcome to UploadMenu");
+                Console.WriteLine("Welcome to LaunchMenu");
             }
-      
+
         }
     }
 }
