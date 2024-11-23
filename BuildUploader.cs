@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ManageSite
+namespace SiteManager
 {
     internal class BuildUploader
     {
@@ -16,7 +16,7 @@ namespace ManageSite
              * Отправить на Yandex Webdav через Yandex Webdav API.
              * Сообщить об успешной загрузке.
              */
-            Console.WriteLine("\nWelcome to uploader");
+            Console.WriteLine("\nwelcome to uploader");
 
             
         }
