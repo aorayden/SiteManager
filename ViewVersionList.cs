@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace SiteManager;
 
-namespace SiteManager
+internal class ViewVersionList
 {
-    internal class ViewVersionList
+    private AppConfig appConfig = new AppConfig();
+
+    internal void ViewVersionListMenu(string path)
     {
-        internal void ViewVersionListMenu()
-        {
-            Console.Clear();
-            while (true)
-            {
-                Console.WriteLine("Welcome to ViewVersionList");
-            }
-        }
+        Console.Clear();
+
+        Console.WriteLine("Available versions:");
+
+        
+
+        Directory.GetDirectories($"")
     }
 }

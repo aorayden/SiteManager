@@ -91,7 +91,7 @@ void AppMenu()
 
         void InitApp()
         {
-            Console.WriteLine("Инициализация приложения..");
+            Console.WriteLine("Application initialization..");
             Thread.Sleep(1000);
 
             appConfig.ReadAndCheckConfig(appConfig.СonfigPath);

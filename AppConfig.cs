@@ -30,25 +30,33 @@ namespace SiteManager
                     if (root.TryGetProperty("yandexWebdavToken", out var yandexWebdavToken) &&
                         root.TryGetProperty("yandexWebdavUrl", out var yandexWebdavUrl))
                     {
-                        Console.WriteLine("\nФайл конфигурации успешно загружен.");
-                        return;
+                        if (yandexWebdavUrl.GetString() == "https://webdav.yandex.ru")
+                        {
+                            Console.WriteLine("\nConfiguration file successfully uploaded.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nThe configuration file does not contain the necessary settings.");
+                            Thread.Sleep(1000);
+                            throw new Exception();
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("\nВ файле конфигурации отсутствуют необходимые настройки.");
+                        Console.WriteLine("\nThe configuration file does not contain the necessary settings.");
                         Thread.Sleep(1000);
                         throw new Exception();
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"\nФайл конфигурации повреждён или изменён.");
+                    Console.WriteLine($"Configuration file is corrupted or modified.");
                     CreateConfig(configPath);
                 }
             }
             else
             {
-                Console.WriteLine("\nФайл конфигурации не найден.");
+                Console.WriteLine("\nConfiguration file not found.");
                 CreateConfig(configPath);
             }
         }
@@ -57,7 +65,7 @@ namespace SiteManager
         {
             if (File.Exists(configPath))
             {
-                Console.WriteLine("Файл конфигурации уже существует. Удаляем и создаём заново.");
+                Console.WriteLine("\nThe configuration file already exists. Delete it and create it again.");
                 File.Delete(configPath);
                 try
                 {
@@ -65,7 +73,14 @@ namespace SiteManager
 
                     // Запрос токена для Yandex Webdav.
                     Console.Write("Введите токен для Yandex Webdav: ");
-                    string yandexWebdavToken = Console.ReadLine();
+                    string? yandexWebdavToken = Console.ReadLine();
+
+                    while (string.IsNullOrEmpty(yandexWebdavToken))
+                    {
+                        Console.WriteLine("\nТокен не должен быть пустым.");
+                        Console.Write("Введите токен для Yandex Webdav: ");
+                        yandexWebdavToken = Console.ReadLine();
+                    }
 
                     // Создание структуры файла конфигурации.
                     var config = new
@@ -80,7 +95,6 @@ namespace SiteManager
                     // Запись нового файла конфигурации.
                     File.WriteAllText(configPath, json);
                     Console.WriteLine("\nФайл конфигурации успешно создан.");
-                    return;
                 }
                 catch (Exception ex)
                 {
@@ -95,7 +109,14 @@ namespace SiteManager
 
                     // Запрос токена для Yandex Webdav.
                     Console.Write("Введите токен для Yandex Webdav: ");
-                    string yandexWebdavToken = Console.ReadLine();
+                    string? yandexWebdavToken = Console.ReadLine();
+
+                    while (string.IsNullOrEmpty(yandexWebdavToken))
+                    {
+                        Console.WriteLine("\nТокен не должен быть пустым.");
+                        Console.Write("Введите токен для Yandex Webdav: ");
+                        yandexWebdavToken = Console.ReadLine();
+                    }
 
                     // Создание структуры файла конфигурации.
                     var config = new
@@ -110,7 +131,6 @@ namespace SiteManager
                     // Запись нового файла конфигурации.
                     File.WriteAllText(configPath, json);
                     Console.WriteLine("\nФайл конфигурации успешно создан.");
-                    return;
                 }
                 catch (Exception ex)
                 {
@@ -132,7 +152,6 @@ namespace SiteManager
                     File.Create($@"{path}/versions.json");
 
                     Console.WriteLine("\nДиректория успешно создана.");
-                    return;
                 }
                 catch (Exception ex)
                 {
@@ -174,7 +193,6 @@ namespace SiteManager
                 //        CreateConfig(configPath);
                 //    }
                 //}
-                return;
             }
         }
     }
