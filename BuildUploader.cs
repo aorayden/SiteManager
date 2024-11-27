@@ -1,6 +1,4 @@
-﻿using System.IO.Compression;
-
-namespace SiteManager;
+﻿namespace SiteManager;
 
 internal class BuildUploader
 {

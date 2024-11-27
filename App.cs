@@ -74,7 +74,7 @@ void AppMenu()
                             return;
                         case 4:
                             var viewerVersions = new ViewVersionList();
-                            viewerVersions.ViewVersionListMenu();
+                            viewerVersions.ViewVersionListMenu(appConfig.VersionConfigPath);
                             return;
                         case 5:
                             Console.WriteLine("Leaving the application.");
